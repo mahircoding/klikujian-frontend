@@ -4,7 +4,7 @@ VITE_API_BASE = "https://api.ayosekolah.my.id"
 VITE_API_TARGET = "https://api.ayosekolah.my.id"
 
 [phases.install]
-cmds = ["npm install --global pnpm@10.28.1", "pnpm install --frozen-lockfile"]
+cmds = ["npm install --global pnpm@10.28.1", "pnpm install --force --frozen-lockfile"]
 
 [phases.build]
 cmds = ["pnpm build"]
