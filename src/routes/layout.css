@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+
+/* Font stack sistem saja — tanpa dependency eksternal (PRD: jangan over-engineer). */
+html {
+	font-family:
+		ui-sans-serif,
+		system-ui,
+		-apple-system,
+		'Segoe UI',
+		Roboto,
+		'Helvetica Neue',
+		Arial,
+		sans-serif;
+	-webkit-text-size-adjust: 100%;
+}

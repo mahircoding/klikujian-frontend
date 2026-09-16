@@ -1,0 +1,3 @@
+# Cloudflare Pages: SPA fallback untuk rute dinamis (/guru/ujian/<id>/...)
+# adapter-static tidak membuat file ini; tanpa ini, deep link -> 404.
+/*  /200.html  200
