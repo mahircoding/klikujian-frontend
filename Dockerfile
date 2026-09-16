@@ -23,7 +23,7 @@ FROM nginx:1.27-alpine
 COPY nginx/default.conf.template /etc/nginx/templates/default.conf.template
 COPY --from=build /app/build /usr/share/nginx/html
 # Backend di project Dokploy/network compose yang sama:
-#   BACKEND_URL=http://<nama-service-backend>:8080
-ENV BACKEND_URL=http://backend:8080
+#   BACKEND_URL=http://<nama-service-backend>:3000
+ENV BACKEND_URL=http://backend:3000
 EXPOSE 80
 HEALTHCHECK --interval=30s --timeout=3s CMD wget -qO- http://127.0.0.1/ >/dev/null || exit 1
