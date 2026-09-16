@@ -1,4 +1,27 @@
-# sv
+# KlikUjian Frontend
+
+## Konfigurasi API
+
+Salin `.env.example` menjadi `.env.local` untuk development:
+
+```sh
+cp .env.example .env.local
+```
+
+Saat development, request `/api` diproxy Vite ke `VITE_API_TARGET` (default:
+`http://localhost:8080`). Isi `VITE_API_BASE` hanya jika frontend harus
+mengakses backend secara langsung dari browser. Untuk deployment saat ini,
+gunakan `https://api.ayosekolah.my.id`.
+
+Pada production Docker, frontend memakai path relatif `/api` dan nginx
+meneruskan request ke `BACKEND_URL`. Nilai ini dapat diganti saat container
+dijalankan, misalnya:
+
+```sh
+docker run -e BACKEND_URL=http://backend:8080 -p 8080:80 klikujian-frontend
+```
+
+## Development
 
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 

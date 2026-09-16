@@ -10,11 +10,13 @@ RUN npm i -g pnpm@10.28.1
 COPY package.json pnpm-lock.yaml .npmrc ./
 RUN pnpm install --frozen-lockfile
 COPY . .
-# VITE_API_BASE kosong = mode proxy (direkomendasikan). Isi full URL hanya bila
-# FE tidak berada di belakang proxy nginx ini.
-ARG VITE_API_BASE=
+# URL backend yang dipakai browser. Override dengan --build-arg bila perlu.
+ARG VITE_API_BASE=https://api.ayosekolah.my.id
 ENV VITE_API_BASE=$VITE_API_BASE
-RUN pnpm build
+RUN pnpm build \
+ && sed -i 's#<head>#<head><base href="/">#' build/200.html
+# ^ shell fallback berisi asset path RELATIF (./_app/...). Tanpa <base href="/">,
+# deep link seperti /guru/ujian/<id> salah resolve asset -> halaman blank.
 
 FROM nginx:1.27-alpine
 # Template nginx resmi men-substitusi ${VAR} dari environment saat container start.
