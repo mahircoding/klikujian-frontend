@@ -1,5 +1,5 @@
 [variables]
-NIXPACKS_NODE_VERSION = "22"
+NIXPACKS_NODE_VERSION = "20"
 VITE_API_BASE = "https://api.ayosekolah.my.id"
 VITE_API_TARGET = "https://api.ayosekolah.my.id"
 
